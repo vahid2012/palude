@@ -1,0 +1,217 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE, IMAGES } from '../data/site.ts';
+
+const title = 'Shipping & Logistics from Iran — Ports, Incoterms, Transit Times | Palude';
+const description =
+  'Iranian export shipping and logistics: exit ports (Bandar Abbas, Bushehr, Anzali), Incoterms FOB/CIF/CFR/DAP, transit times to EU, GCC, Russia, South Asia and East Asia, required transport documents and reefer cold-chain.';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  url: `${SITE.url}/shipping-and-logistics/`,
+  description,
+  about: {
+    '@type': 'Service',
+    name: 'Iranian Export Shipping and Logistics',
+    provider: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    serviceType: 'Export freight forwarding and logistics coordination',
+    areaServed: 'Worldwide',
+  },
+};
+---
+
+<Layout title={title} description={description} jsonLd={serviceSchema}>
+  <Breadcrumbs items={[{ label: 'Shipping & Logistics', href: '/shipping-and-logistics/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <header class="max-w-3xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Shipping &amp; logistics</p>
+      <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+        Iranian exit ports, Incoterms and transit times for B2B export
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+        Logistics is the export discipline that determines whether a contracted shipment arrives at
+        the destination port on the timeline the buyer planned, at the cost the buyer budgeted, and
+        in the condition the buyer specified. This page documents the Iranian exit ports we ship
+        from, the Incoterms we work with, the transit times to the major destination markets, and
+        the transport documents every shipment carries.
+      </p>
+    </header>
+
+    <figure class="mt-10 overflow-hidden rounded-2xl border border-border shadow-sm">
+      <img
+        src={IMAGES.logistics}
+        alt="Container port handling Iranian export cargo for international B2B shipping"
+        class="h-72 w-full object-cover sm:h-80"
+        loading="eager"
+        width="940"
+        height="650"
+      />
+      <figcaption class="bg-secondary/60 px-4 py-2.5 text-center text-sm text-muted-foreground">
+        Bandar Abbas is the primary Iranian exit port for Gulf, South Asian and European container traffic
+      </figcaption>
+    </figure>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-[1.4fr_0.9fr] lg:items-start">
+      <article class="prose-palude max-w-none">
+        <h2>Iranian exit ports</h2>
+        <p>
+          Iran's export cargo ships from three principal port systems, each serving a different
+          geography. Choosing the exit port is a destination-routing decision, and we select the
+          port that produces the shortest transit and the lowest landed cost for the buyer's
+          specific destination.
+        </p>
+        <h3>Bandar Abbas</h3>
+        <p>
+          Bandar Abbas, on the Strait of Hormuz, is Iran's largest container port and the default
+          exit port for Gulf, South Asian, European and East Asian container traffic. The port
+          handles the majority of our reefer (refrigerated) container traffic for
+          <a href="/export/mazafati-dates-bulk-import/">Mazafati dates</a> and the dry-container
+          traffic for <a href="/export/bulk-fandoghi-pistachios-wholesale/">pistachios</a>,
+          <a href="/export/iranian-saffron-super-negin/">saffron</a> and
+          <a href="/export/golden-almonds-iran-sourcing/">almonds</a>. Most major container lines
+          call at Bandar Abbas, which gives us schedule flexibility for non-urgent shipments and
+          the option of direct or transhipment routing depending on the destination.
+        </p>
+        <h3>Bushehr</h3>
+        <p>
+          Bushehr, on the Gulf coast west of Bandar Abbas, is the secondary Gulf port and is
+          particularly useful for shipments to Iraqi, Kuwaiti and eastern Saudi destinations, where
+          the shorter Gulf crossing produces a lower freight cost and a shorter transit than
+          routing through Bandar Abbas. Bushehr also handles a portion of the
+          <a href="/export/persian-travertine-marble-supplier/">stone and bitumen</a> export traffic,
+          where the heavy-cargo handling capability is relevant.
+        </p>
+        <h3>Anzali</h3>
+        <p>
+          Anzali, on the Caspian Sea in Gilan province, is the exit port for the overland-and-Caspian
+          route to Russia and the CIS. Cargo from Anzali ships by Caspian Sea vessel to Astrakhan
+          (Russia) or Aktau (Kazakhstan), or by overland reefer truck through Azerbaijan to Moscow.
+          The Anzali route is the fastest route to Moscow for time-sensitive
+          <a href="/export/bulk-fandoghi-pistachios-wholesale/">pistachio shipments to Russia</a>,
+          with a 10-14 day transit from our Urmia base to the Moscow distribution point.
+        </p>
+
+        <h2>Incoterms: FOB, CFR, CIF and DAP</h2>
+        <p>
+          We work with the ICC Incoterms 2020 rules, and the four terms most often used in Iranian
+          export contracts are FOB, CFR, CIF and DAP. The choice of Incoterms is a risk-and-cost
+          allocation decision, and we quote the term the buyer specifies or recommend the term that
+          best fits the buyer's logistics capability.
+        </p>
+        <h3>FOB (Free On Board)</h3>
+        <p>
+          Under FOB, Palude delivers the cargo, cleared for export, alongside the vessel at the
+          named Iranian port (typically Bandar Abbas). The buyer's nominated carrier takes the cargo
+          from that point and bears the ocean freight and destination costs. FOB is the term
+          preferred by buyers who have their own freight-forwarding relationships and want to
+          control the ocean-leg cost and routing.
+        </p>
+        <h3>CFR (Cost and Freight)</h3>
+        <p>
+          Under CFR, Palude delivers the cargo to the named destination port, paying the ocean
+          freight, but the buyer bears the cargo insurance and the destination clearance risk from
+          the moment the cargo is loaded at the Iranian port. CFR is the term for buyers who want
+          us to handle the ocean freight but who have their own destination broker and insurance
+          arrangement.
+        </p>
+        <h3>CIF (Cost, Insurance and Freight)</h3>
+        <p>
+          Under CIF, Palude delivers the cargo to the named destination port, paying both the ocean
+          freight and the marine cargo insurance. The buyer bears the destination clearance risk.
+          CIF is the term most often used by buyers who want a single delivered-to-port price and
+          who prefer the marine insurance to be arranged at the origin side.
+        </p>
+        <h3>DAP (Delivered at Place)</h3>
+        <p>
+          Under DAP, Palude delivers the cargo to the named destination place (typically the buyer's
+          bonded warehouse), bearing all costs and risks up to that point except destination
+          clearance. DAP is the term used for the overland Russia route and for destinations where
+          the buyer wants a single delivered price to their warehouse door.
+        </p>
+
+        <h2>Transit times by destination</h2>
+        <p>
+          The transit times below are indicative, from vessel sailing at the Iranian exit port to
+          arrival at the destination port. Actual transit times vary by carrier, sailing schedule
+          and transhipment routing.
+        </p>
+        <ul>
+          <li><strong>Bandar Abbas to Jebel Ali (UAE):</strong> 5-7 days</li>
+          <li><strong>Bandar Abbas to Dammam (Saudi):</strong> 7-10 days</li>
+          <li><strong>Bandar Abbas to Mundra / Nhava Sheva (India):</strong> 10-14 days</li>
+          <li><strong>Bandar Abbas to Hamburg / Rotterdam (EU):</strong> 25-35 days via Suez</li>
+          <li><strong>Bandar Abbas to Shanghai / Qingdao (China):</strong> 30-40 days</li>
+          <li><strong>Anzali to Astrakhan (Russia, Caspian Sea):</strong> 5-8 days</li>
+          <li><strong>Urmia to Moscow (overland reefer truck via Azerbaijan):</strong> 10-14 days</li>
+          <li><strong>Air freight, Tehran to Europe:</strong> 3-6 days (for urgent sample and high-value shipments)</li>
+        </ul>
+        <p>
+          For refrigerated cargo — Mazafati dates and any temperature-sensitive consolidation — the
+          reefer container's set-point and the data-logger record are part of the shipment
+          specification. Our <a href="/blog/shipping-dates-from-iran-cold-chain/">cold-chain
+          logistics guide</a> covers the reefer set-points and consolidation rules in detail.
+        </p>
+
+        <h2>Required transport documents</h2>
+        <p>
+          Every shipment, regardless of Incoterms, travels with a transport document that evidences
+          receipt of the cargo and the contract of carriage. For sea freight, the document is the
+          bill of lading issued by the carrier. For air freight, it is the airway bill. For overland
+          shipment to Russia and the CIS, it is the CMR consignment note. The transport document is
+          also the document of title for letter-of-credit transactions — the buyer's bank pays
+          against the presented transport document and the accompanying commercial documents.
+        </p>
+        <p>
+          The full document set — commercial invoice, packing list, certificate of origin,
+          product-specific certificates, transport document, and (for hazardous cargo) the MSDS and
+          hazardous-cargo declaration — is covered in our
+          <a href="/blog/iran-export-documentation-checklist/">Iran export documentation
+          checklist</a>. The document set is checked at origin before the vessel sails, so any
+          discrepancy is corrected at the loading port rather than at the destination — a step that
+          prevents the destination-port demurrage that accrues when documents are corrected by email
+          after the cargo has sailed.
+        </p>
+
+        <h2>Insurance and the temperature-logger record</h2>
+        <p>
+          Marine cargo insurance is arranged either under CIF terms (by Palude, at the origin side)
+          or under FOB/CFR/DAP terms (by the buyer, at the destination side). For reefer cargo, we
+          arrange transit insurance through a London-market specialist marine cargo policy that
+          covers temperature-excursion damage — the loss that occurs when a reefer loses set-point
+          in transit. The reefer's data logger is the evidence of the temperature history and the
+          document that supports a temperature-excursion claim. A buyer who ships reefer cargo under
+          a general cargo policy is a buyer whose temperature-excursion loss is not covered.
+        </p>
+        <p>
+          For the payment-channel framework that determines when and how the transport documents are
+          released, our <a href="/blog/payment-methods-iranian-exports-b2b/">payment methods for
+          Iranian exports</a> guide covers the working channels. To begin a shipment with the
+          routing, Incoterms and document set defined upfront, <a href="/request-a-quote/">request a
+          sourcing quote</a> with your product, volume, destination port and preferred Incoterms.
+        </p>
+      </article>
+
+      <aside class="space-y-5 lg:sticky lg:top-24">
+        <div class="rounded-2xl border border-border bg-secondary/50 p-6">
+          <h2 class="font-display text-base font-bold text-foreground">Exit ports at a glance</h2>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div><dt class="font-semibold text-foreground">Bandar Abbas</dt><dd class="text-muted-foreground">Gulf, South Asia, EU, East Asia container traffic</dd></div>
+            <div><dt class="font-semibold text-foreground">Bushehr</dt><dd class="text-muted-foreground">Iraq, Kuwait, eastern Saudi; heavy-cargo stone and bitumen</dd></div>
+            <div><dt class="font-semibold text-foreground">Anzali</dt><dd class="text-muted-foreground">Caspian Sea to Russia and CIS; overland to Moscow</dd></div>
+          </dl>
+        </div>
+        <div class="rounded-2xl border border-border bg-background p-6 shadow-sm">
+          <h2 class="font-display text-base font-bold text-foreground">Plan a shipment</h2>
+          <p class="mt-2 text-sm text-foreground/70">Share your product, volume, destination port and Incoterms. We respond with routing, transit time and a draft proforma.</p>
+          <a href="/request-a-quote/" class="mt-4 inline-flex rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow">
+            Request a quote
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>

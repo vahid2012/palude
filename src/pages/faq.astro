@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE, IMAGES } from '../data/site.ts';
+
+const faqs = [
+  {
+    q: 'What is the minimum order quantity (MOQ) for Iranian saffron?',
+    a: 'The MOQ for saffron is 1 kg for sample-grade orders, 5 kg for standard export packs, and 20 kg for palletised consolidation. For industrial Sargol buyers running a colour-strength application, the standard export MOQ is 5 kg. Sample orders of 50-100 g ship with the ISO 3632 certificate for your lab verification, and the sample cost is credited against your first production order.',
+  },
+  {
+    q: 'What is the MOQ for pistachios, dates, almonds and other food products?',
+    a: 'The MOQ for pistachios is 1 metric ton for standard export and 5 metric tons for container consolidation. For Mazafati dates, the MOQ is 2 metric tons (roughly one pallet) for a trial and 12-14 metric tons for a 20ft reefer consolidation. For almonds, the MOQ is 1 metric ton for natural kernels and 500 kg for blanched, sliced or slivered formats. For the saffron nuts gift box programme, the MOQ is 1,000 gift boxes.',
+  },
+  {
+    q: 'Do you send samples before contract?',
+    a: 'Yes. The standard sequence for first-time relationships is sample, lab-verify, contract, ship. We send a 50-100 g saffron sample with the ISO 3632 certificate, a 200-500 g pistachio sample with the HPLC aflatoxin certificate, or a representative carpet photograph set and spec sheet. For food samples, the buyer may independently re-test the sample at a destination laboratory; on sample approval, the buyer and Palude sign a fixed-price proforma and the production order ships against the proforma spec.',
+  },
+  {
+    q: 'What payment methods do you accept for Iranian exports?',
+    a: 'Iranian banks are not directly connected to the European or US clearing systems, so direct EUR or USD payments to an Iranian account are generally not possible. The working channels are: a third-country correspondent bank transfer, a letter of credit issued by the buyer\u2019s bank and confirmed through a third-country correspondent, or an escrow arrangement for established relationships. We confirm the payment channel with your bank before we issue a proforma. Our payment methods guide covers the channels in detail.',
+  },
+  {
+    q: 'Do you accept telegraphic transfer (T/T) payment?',
+    a: 'T/T (telegraphic transfer) through a third-country correspondent bank is the most common payment channel for Iranian exports and is accepted for established relationships. For first-time relationships and high-value shipments, we recommend a letter of credit to protect both sides. Advance T/T (100% before shipment) is the supplier\u2019s preferred structure but exposes the buyer to non-performance risk, so we do not recommend it for first-time engagements. The default for first-time buyers is the LC or a documentary collection against the shipping documents.',
+  },
+  {
+    q: 'Do you accept letters of credit (L/C)?',
+    a: 'Yes. The letter of credit is the channel we recommend for first-time relationships and high-value shipments. The buyer\u2019s bank issues the LC in favour of Palude, payable against the shipping documents (commercial invoice, packing list, bill of lading, certificate of origin, product-specific certificates). The LC is confirmed through a third-country correspondent bank that adds its confirmation undertaking to pay. The LC\u2019s protection is documentary: we ship against the agreed document set, and the buyer pays against the confirmed shipment.',
+  },
+  {
+    q: 'What is the typical lead time from proforma to shipment?',
+    a: 'Lead time varies by product. Saffron: 10-14 business days for stock grades, 18-25 days for bespoke cut and packaging. Pistachios: 12-18 days for stock grades, 25-35 days for bespoke kernel sizing. Mazafati dates: 14-21 days for stock dates, longer in the pre-Ramadan window. Persian carpets: 3-6 weeks for a single piece, longer if a Cultural Heritage permit is required. Stone: 18-30 days from slab selection to container loading. Petrochemicals and bitumen: 10-20 days from proforma depending on the refinery\u2019s shipping schedule. The lead time is stated on every proforma.',
+  },
+  {
+    q: 'What documents do I receive with each shipment?',
+    a: 'Every shipment travels with a commercial invoice, packing list, certificate of origin (Iran Chamber of Commerce), and the transport document (bill of lading, airway bill, or CMR). Food products additionally carry a phytosanitary certificate (Iranian Plant Protection Organization) and product-specific lab certificates (ISO 3632 for saffron, HPLC aflatoxin for pistachios). Petrochemicals carry a refinery certificate of analysis and MSDS. Carpets carry a Cultural Heritage export permit where the piece\u2019s age requires it. The full document set is checked at origin before the vessel sails.',
+  },
+  {
+    q: 'Which Iranian exit ports do you ship from?',
+    a: 'We ship from three principal port systems. Bandar Abbas, on the Strait of Hormuz, is the default for Gulf, South Asian, European and East Asian container traffic and handles the majority of reefer and dry-container traffic. Bushehr, on the Gulf coast, serves Iraqi, Kuwaiti and eastern Saudi destinations and handles heavy-cargo stone and bitumen. Anzali, on the Caspian Sea, is the exit port for the overland-and-Caspian route to Russia and the CIS. Our shipping and logistics guide covers the ports, transit times and Incoterms in detail.',
+  },
+  {
+    q: 'What Incoterms do you work with?',
+    a: 'We work with the ICC Incoterms 2020 rules. The four terms most often used are FOB (Free On Board, named Iranian port), CFR (Cost and Freight, named destination port), CIF (Cost, Insurance and Freight, named destination port), and DAP (Delivered at Place, named destination warehouse). FOB is preferred by buyers with their own freight-forwarding relationships; CIF is preferred by buyers who want a single delivered-to-port price with origin-side marine insurance; DAP is used for the overland Russia route and for buyers who want a single delivered-to-warehouse price.',
+  },
+  {
+    q: 'How do you verify product quality before shipment?',
+    a: 'Quality verification is product-specific. Saffron is verified by an ISO 3632 lab certificate reporting crocin, picrocrocin and safranal absorbance values. Pistachios are verified by an HPLC aflatoxin certificate reporting total and B1 aflatoxin against the EU 10 ppb or Russian 4 ppb limits. Petrochemicals and bitumen are verified by a refinery certificate of analysis reporting the ASTM test values. Persian carpets are verified by knot-density counting, dye analysis, foundation inspection and (for antiques) a written age opinion. Every certificate is batch-specific and travels with the cargo.',
+  },
+  {
+    q: 'Can you arrange pre-shipment inspection (PSI)?',
+    a: 'Yes. For government-tender and large-volume buyers, a pre-shipment inspection by SGS, Intertek, Bureau Veritas or Cotecna is often a contract requirement. The PSI verifies quantity, quality, packaging and marking before the container ships, and the PSI certificate is the document the buyer\u2019s tender authority requires for payment release. We facilitate PSI at the Iranian loading port as part of the export workflow, and the PSI cost is a quoted line item rather than a surprise at the invoice stage.',
+  },
+  {
+    q: 'Do you ship refrigerated (reefer) cargo?',
+    a: 'Yes. Mazafati dates and any temperature-sensitive consolidation ship in reefer containers. The reefer set-point depends on the destination transit time: 0 to +5\u00b0C for short Gulf and South Asian transits, -5 to 0\u00b0C for longer European and East Asian transits. The reefer\u2019s data logger is read at destination and the temperature record is part of the documentation set. Marine cargo insurance for reefer shipments is arranged through a London-market specialist policy that covers temperature-excursion damage, which general cargo insurance does not.',
+  },
+  {
+    q: 'Can you consolidate multiple products into one container?',
+    a: 'Yes, with set-point and handling constraints. Low-moisture dried fruit can consolidate with Mazafati dates in a reefer set to the date set-point. Almonds and pistachios share a dry-container set-point comfortably. However, dates and pistachios should not share a reefer (the pistachios are over-chilled and at condensation risk), and saffron should never share a container with a refrigerated or odorous cargo (saffron absorbs moisture and odour). The general rule is: refrigerate the cargo that requires refrigeration, and ship the dry cargo dry.',
+  },
+  {
+    q: 'How do I start an engagement with Palude?',
+    a: 'The first step is a written inquiry \u2014 through the request-a-quote form, WhatsApp, Telegram, or the contact page \u2014 with your product, grade, volume, destination port, Incoterms and any certification requirements. A sourcing advisor responds within one business day with verified supplier options, indicative pricing, and a draft proforma if your spec is standard. From that point, the advisor stays on the file through sample, contract, production supervision, documentation and shipment. There are no brokerage fees on the buyer side.',
+  },
+];
+
+const title = 'B2B FAQ — Sourcing, MOQ, Samples, Payment, Lead Time, Documents | Palude';
+const description =
+  'Frequently asked questions for international B2B buyers importing from Iran: minimum order quantities, samples, payment methods (T/T and L/C), lead times, export documents, shipping, Incoterms, quality verification and pre-shipment inspection.';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  url: `${SITE.url}/faq/`,
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} jsonLd={faqSchema}>
+  <Breadcrumbs items={[{ label: 'FAQ', href: '/faq/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <header class="max-w-3xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">B2B FAQ</p>
+      <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+        Questions international buyers ask before their first Iranian import
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+        These are the questions the Palude export desk fields most often from international B2B
+        buyers \u2014 on minimum order quantities, samples, payment methods, lead times, export
+        documents, shipping and quality verification. The answers are the operational answers, not
+        the marketing version: they reflect how the desk actually works on a real engagement.
+      </p>
+    </header>
+
+    <figure class="mt-10 overflow-hidden rounded-2xl border border-border shadow-sm">
+      <img
+        src={IMAGES.support}
+        alt="Palude sourcing advisor answering a B2B buyer inquiry about Iranian export documentation"
+        class="h-72 w-full object-cover sm:h-80"
+        loading="eager"
+        width="940"
+        height="650"
+      />
+      <figcaption class="bg-secondary/60 px-4 py-2.5 text-center text-sm text-muted-foreground">
+        A sourcing advisor responds to every RFQ within one business day
+      </figcaption>
+    </figure>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-[1.5fr_0.8fr] lg:items-start">
+      <div class="divide-y divide-border rounded-2xl border border-border bg-background shadow-sm">
+        {faqs.map((faq, i) => (
+          <details class="group p-5 sm:p-6" open={i === 0}>
+            <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+              <h2 class="font-display text-base font-semibold leading-snug text-foreground sm:text-lg">{faq.q}</h2>
+              <span class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground transition-transform group-open:rotate-45" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-foreground/80 sm:text-[0.95rem]">{faq.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <aside class="space-y-5 lg:sticky lg:top-24">
+        <div class="rounded-2xl border border-border bg-secondary/50 p-6">
+          <h2 class="font-display text-base font-bold text-foreground">Still have a question?</h2>
+          <p class="mt-2 text-sm text-foreground/70">If your question is not covered here, the fastest path to an answer is a direct inquiry. We respond within one business day.</p>
+          <a href="/request-a-quote/" class="mt-4 inline-flex w-full justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow">
+            Submit an RFQ
+          </a>
+          <a href="/contact/" class="mt-3 inline-flex w-full justify-center rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary">
+            Contact the desk
+          </a>
+        </div>
+        <div class="rounded-2xl border border-border bg-background p-6 shadow-sm">
+          <h2 class="font-display text-base font-bold text-foreground">Related guides</h2>
+          <ul class="mt-3 space-y-2 text-sm">
+            <li><a href="/blog/iran-export-documentation-checklist/" class="font-medium text-primary hover:underline">Iran export documentation checklist</a></li>
+            <li><a href="/blog/payment-methods-iranian-exports-b2b/" class="font-medium text-primary hover:underline">Payment methods for Iranian exports</a></li>
+            <li><a href="/blog/how-to-import-iranian-saffron-b2b-guide/" class="font-medium text-primary hover:underline">How to import Iranian saffron</a></li>
+            <li><a href="/certifications/" class="font-medium text-primary hover:underline">Certifications &amp; compliance</a></li>
+            <li><a href="/shipping-and-logistics/" class="font-medium text-primary hover:underline">Shipping &amp; logistics from Iran</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>

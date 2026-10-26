@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const title = 'B2B Sourcing Blog — Importing from Iran | Palude';
+const description =
+  'Practical guides for international B2B buyers importing from Iran: saffron sourcing, pistachio wholesale, Persian carpet authentication, export documentation, cold-chain logistics, payment methods and market trends.';
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Palude B2B Sourcing Blog',
+  url: 'https://palude.ir/blog/',
+  description,
+  blogPost: posts.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.data.h1,
+    url: `https://palude.ir/blog/${p.slug}/`,
+    datePublished: p.data.publishDate.toISOString(),
+    author: { '@type': 'Organization', name: 'Palude' },
+  })),
+};
+---
+
+<Layout title={title} description={description} jsonLd={blogSchema}>
+  <Breadcrumbs items={[{ label: 'Blog', href: '/blog/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <header class="max-w-2xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">B2B sourcing knowledge</p>
+      <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+        Practical guides for importing from Iran
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+        Field-tested sourcing guides, quality standards, logistics routes, payment methods and
+        documentation checklists for international B2B buyers. Written by the Palude export desk
+        for buyers who need to make decisions, not read marketing.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+      <article class="prose-palude max-w-none">
+        <h2>What this blog covers</h2>
+        <p>
+          The Palude B2B sourcing blog is the working library we wish every international buyer had
+          before their first Iranian import contract. Each post is written by the export desk that
+          ships the cargo, not by a marketing team, and each post answers a specific question a real
+          buyer has asked us during a sourcing engagement. The categories below map to the decisions
+          a buyer makes in sequence: which grade to specify, how to verify quality, how to route the
+          payment, how to package and ship, and how to read the market the cargo is being bought into.
+        </p>
+        <p>
+          The sourcing guides walk through a complete import sequence end to end, from the first
+          inquiry to the delivered container. The quality and standards guides cover the lab
+          frameworks, grading systems and authentication disciplines that separate a verified
+          shipment from a misrepresented one. The logistics and packaging guides cover the reefer,
+          dry-container and crating decisions that determine whether the product arrives as the
+          product the buyer ordered. The finance guides cover the sanctions-compliant payment
+          channels that actually work for Iranian exports. And the market-trends posts cover the
+          harvest cycles, capacity additions and demand patterns that shape pricing across the year.
+        </p>
+        <p>
+          We publish new guides as the trade environment shifts — when a destination authority
+          tightens an aflatoxin limit, when a payment corridor opens or closes, when a harvest
+          volume comes in above or below expectation. If you are building an annual sourcing
+          programme, the market-trends posts are the ones to read first; if you are placing your
+          first order, start with the documentation checklist and the vertical-specific guide for
+          the product you are buying.
+        </p>
+
+        <h2>How to use these guides</h2>
+        <p>
+          Each guide is self-contained but cross-references the others where the workflow connects.
+          A buyer importing <a href="/blog/how-to-import-iranian-saffron-b2b-guide/">Iranian saffron into the EU</a>
+          will be directed to the <a href="/blog/iran-export-documentation-checklist/">documentation checklist</a>
+          for the payment and customs workflow, and to the <a href="/blog/packaging-standards-iranian-food-exports/">packaging standards guide</a>
+          for the argon-flushed foil-pouch spec that protects ISO 3632 values in transit. A buyer
+          importing <a href="/export/persian-rug-9x12-hand-knotted/">hand-knotted 9x12 Persian rugs</a> will be
+          directed to the <a href="/blog/persian-carpet-authentication-verify-hand-knotted/">authentication guide</a>
+          for the knot-density, dye-analysis and age-verification framework. The cross-references
+          exist because no single guide covers the full import workflow — the workflow is a chain,
+          and each guide covers one link.
+        </p>
+        <p>
+          If you have a question that is not covered here, the fastest path to an answer is a direct
+          inquiry. We respond within one business day, and questions that recur across buyers become
+          the next posts on this blog. <a href="/contact/">Request a sourcing quote</a> and an advisor
+          will pick up the file.
+        </p>
+
+        <h2>Who writes these guides</h2>
+        <p>
+          The guides are written by the Palude export desk — the same team that issues proforma
+          invoices, supervises loading at the Iranian packing facility, and resolves the
+          documentation discrepancies that surface at destination customs. The perspective is the
+          operator's perspective, not the consultant's: every recommendation in these guides is one
+          we have implemented on a real shipment, and every warning is a failure mode we have seen
+          on a real shipment that did not go to plan.
+        </p>
+        <p>
+          We do not write generic import-export content. If a guide exists on this blog, it exists
+          because a buyer asked us the question and the answer was not obvious — and because the
+          same question has recurred across enough buyers that publishing the answer is more
+          efficient than answering it one email at a time. The guides are opinionated where the
+          trade has opinions (Sargol versus Super Negin for industrial buyers; drum versus Iso-tank
+          for bitumen; third-country correspondent versus letter of credit for first-time payments)
+          and neutral where the trade is genuinely product- and destination-specific.
+        </p>
+        <p>
+          If you are a journalist or researcher writing about the Iranian export trade and would
+          like source material, we are happy to share the underlying data behind the market-trends
+          posts. Reach out through the <a href="/contact/">contact page</a> and we will route the
+          inquiry to the desk lead for the relevant vertical.
+        </p>
+      </article>
+
+      <aside class="rounded-2xl border border-border bg-secondary/50 p-6">
+        <h2 class="font-display text-lg font-bold text-foreground">Most-read guides</h2>
+        <ol class="mt-4 space-y-3 text-sm">
+          <li><a href="/blog/how-to-import-iranian-saffron-b2b-guide/" class="font-medium text-primary hover:underline">How to import Iranian saffron: a B2B guide</a></li>
+          <li><a href="/blog/iran-export-documentation-checklist/" class="font-medium text-primary hover:underline">Iran export documentation checklist</a></li>
+          <li><a href="/blog/payment-methods-iranian-exports-b2b/" class="font-medium text-primary hover:underline">Payment methods for Iranian exports</a></li>
+          <li><a href="/blog/shipping-dates-from-iran-cold-chain/" class="font-medium text-primary hover:underline">Shipping dates from Iran: cold-chain logistics</a></li>
+          <li><a href="/blog/iranian-pistachio-quality-standards-aflatoxin/" class="font-medium text-primary hover:underline">Iranian pistachio quality standards</a></li>
+        </ol>
+      </aside>
+    </div>
+
+    <h2 class="mt-16 font-display text-2xl font-bold text-foreground">All guides</h2>
+    <div class="mt-8 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => (
+        <article class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+          <a href={`/blog/${post.slug}/`} class="block">
+            <div class="h-48 overflow-hidden">
+              <img
+                src={post.data.heroImage}
+                alt={post.data.heroAlt}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                width="940"
+                height="650"
+              />
+            </div>
+          </a>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-accent">{post.data.category}</p>
+            <h3 class="mt-2 font-display text-lg font-bold leading-snug text-foreground">
+              <a href={`/blog/${post.slug}/`} class="transition-colors hover:text-primary">
+                {post.data.h1}
+              </a>
+            </h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-foreground/70">{post.data.description}</p>
+            <div class="mt-4 flex items-center justify-between text-xs text-muted-foreground">
+              <time datetime={post.data.publishDate.toISOString()}>
+                {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              <span>{post.data.readingTime}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

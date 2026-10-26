@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 25% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 14%;
+    --primary: 158 36% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 38 60% 96%;
+    --secondary-foreground: 215 25% 18%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 12% 42%;
+    --accent: 32 78% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 18% 88%;
+    --input: 210 18% 88%;
+    --ring: 158 36% 24%;
+    --chart-1: 158 36% 40%;
+    --chart-2: 32 78% 50%;
+    --chart-3: 197 45% 35%;
+    --chart-4: 38 70% 55%;
+    --chart-5: 12 60% 50%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.018em;
+    line-height: 1.2;
+  }
+  p, li {
+    line-height: 1.7;
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
+  }
+  .container-wide {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6;
+  }
+  .prose-palude {
+    @apply text-[1.0625rem] leading-[1.75] text-foreground/90;
+  }
+  .prose-palude h2 {
+    @apply mt-12 mb-4 text-2xl font-bold text-foreground sm:text-[1.7rem];
+  }
+  .prose-palude h2::before {
+    content: '';
+    @apply mb-3 block h-1 w-12 rounded-full bg-accent;
+  }
+  .prose-palude h3 {
+    @apply mt-8 mb-3 text-xl font-semibold text-foreground;
+  }
+  .prose-palude p {
+    @apply mb-5 text-[1.0625rem] leading-[1.75] text-foreground/90;
+  }
+  .prose-palude ul {
+    @apply mb-5 list-none space-y-2 pl-0;
+  }
+  .prose-palude li {
+    @apply relative pl-7 text-[1.0625rem] leading-[1.7] text-foreground/90;
+  }
+  .prose-palude li::before {
+    content: '';
+    @apply absolute left-0 top-[0.7em] h-2 w-2 rounded-full bg-primary;
+  }
+  .prose-palude a {
+    @apply font-medium text-primary underline decoration-primary/30 decoration-2 underline-offset-4 transition-colors hover:decoration-primary;
+  }
+  .prose-palude strong {
+    @apply font-semibold text-foreground;
+  }
+  .prose-palude blockquote {
+    @apply my-6 border-l-4 border-accent/60 bg-secondary/60 px-5 py-3 italic text-foreground/80;
+  }
+  .prose-palude figure {
+    @apply my-8;
+  }
+  .prose-palude figcaption {
+    @apply mt-2 text-sm text-muted-foreground;
+  }
+  .prose-palude table {
+    @apply my-8 w-full border-collapse text-left text-sm;
+  }
+  .prose-palude th, .prose-palude td {
+    @apply border border-border px-3 py-2;
+  }
+  .prose-palude th {
+    @apply bg-secondary font-semibold;
+  }
+  .prose-palude tr:nth-child(even) td {
+    @apply bg-muted/40;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .link-underline {
+    @apply relative font-medium text-primary after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+}

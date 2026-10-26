@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { CATEGORIES, IMAGES, SITE } from '../data/site.ts';
+
+const title = 'Palude — Iranian Export & Wholesale Sourcing for International B2B Buyers';
+const description =
+  'Palude connects international B2B importers with verified Iranian suppliers of saffron, Persian carpets, pistachios, dates, dried fruits, travertine marble, bitumen, petrochemicals and food products. Direct sourcing, export documentation, and cold-chain logistics from Iran.';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${SITE.url}/blog/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+---
+
+<Layout title={title} description={description} jsonLd={websiteSchema}>
+  <Breadcrumbs items={[]} />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-border">
+    <div class="absolute inset-0">
+      <img
+        src={IMAGES.logistics}
+        alt="Container port handling Iranian export cargo for international B2B buyers"
+        class="h-full w-full object-cover"
+        loading="eager"
+        width="940"
+        height="650"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[hsl(158_45%_12%_0.92)] via-[hsl(158_40%_16%_0.82)] to-[hsl(158_30%_22%_0.55)]"></div>
+    </div>
+    <div class="container-wide relative py-20 sm:py-28">
+      <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm ring-1 ring-white/20">
+        <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+        Iranian export sourcing — trusted by importers in 30+ markets
+      </p>
+      <h1 class="max-w-3xl font-display text-4xl font-extrabold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl">
+        Source premium Iranian export products directly from verified suppliers
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 text-pretty">
+        Palude is a B2B export desk that connects international importers with Iranian growers,
+        weavers, quarries and petrochemical producers. From <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="/export/iranian-saffron-super-negin/">bulk Super Negin saffron for European importers</a>
+        to <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="/export/persian-rug-9x12-hand-knotted/">hand-knotted 9x12 Persian rug sourcing</a>,
+        we handle supplier verification, export documentation, packaging and cold-chain logistics
+        from origin to your destination port.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/contact/" class="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.02]">
+          Request a sourcing quote
+        </a>
+        <a href="/blog/" class="rounded-lg bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/30 backdrop-blur-sm transition-colors hover:bg-white/20">
+          Read the B2B sourcing blog
+        </a>
+      </div>
+
+      <dl class="mt-12 grid max-w-2xl grid-cols-3 gap-6 text-white">
+        <div>
+          <dt class="text-3xl font-bold text-accent">7</dt>
+          <dd class="mt-1 text-sm text-white/80">Export product verticals</dd>
+        </div>
+        <div>
+          <dt class="text-3xl font-bold text-accent">30+</dt>
+          <dd class="mt-1 text-sm text-white/80">Destination markets served</dd>
+        </div>
+        <div>
+          <dt class="text-3xl font-bold text-accent">10y</dt>
+          <dd class="mt-1 text-sm text-white/80">Iran export &amp; logistics experience</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Intro / value proposition -->
+  <section class="container-wide py-16 sm:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Why international buyers choose Palude</p>
+        <h2 class="font-display text-3xl font-bold text-foreground text-balance sm:text-4xl">
+          A single, accountable export desk for the full range of Iranian export goods
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+          Importers face real friction when buying from Iran: fragmented suppliers, inconsistent
+          quality grading, opaque pricing, sanctions-aware payment routing, and documentation that
+          must satisfy both Iranian customs and the destination country. Palude removes that
+          friction by acting as your single point of accountability from sample to shipment.
+        </p>
+        <p class="mt-4 text-foreground/80">
+          We verify every supplier against ISO, HACCP and destination-market standards, grade
+          product against international specifications, and ship under temperature-controlled
+          conditions where the product demands it. Whether you need
+          <a class="font-medium text-primary underline decoration-primary/30 underline-offset-4" href="/export/bulk-fandoghi-pistachios-wholesale/">Iranian pistachio supplier for Russia</a>
+          quantities or a single container of
+          <a class="font-medium text-primary underline decoration-primary/30 underline-offset-4" href="/export/mazafati-dates-bulk-import/">Mazafati dates Bam vs Jiroft wholesale</a>,
+          the workflow is the same: sample, spec, contract, ship, after-sales.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-border shadow-sm">
+        <img
+          src={IMAGES.market}
+          alt="Iranian export goods at a wholesale spice and dried goods market"
+          class="h-72 w-full object-cover sm:h-80"
+          loading="lazy"
+          width="940"
+          height="650"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories grid -->
+  <section class="bg-secondary/40 py-16 sm:py-20">
+    <div class="container-wide">
+      <div class="mb-10 max-w-2xl">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Export verticals</p>
+        <h2 class="font-display text-3xl font-bold text-foreground text-balance sm:text-4xl">
+          Seven product verticals, one Iranian export desk
+        </h2>
+        <p class="mt-4 text-foreground/80 text-pretty">
+          Each vertical links to a detailed sourcing page with grade specifications, minimum order
+          quantities, lead times, packaging, and the export documentation you will receive.
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {CATEGORIES.map((cat) => (
+          <a
+            href={cat.href}
+            class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src={cat.image}
+                alt={cat.alt}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                width="940"
+                height="650"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
+              <h3 class="absolute bottom-3 left-4 right-4 font-display text-lg font-bold text-white">
+                {cat.label}
+              </h3>
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="text-sm leading-relaxed text-foreground/75">{cat.blurb}</p>
+              <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                Open sourcing guide
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="container-wide py-16 sm:py-20">
+    <div class="mb-10 max-w-2xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">How Palude works</p>
+      <h2 class="font-display text-3xl font-bold text-foreground text-balance sm:text-4xl">
+        From inquiry to delivered container, in five accountable steps
+      </h2>
+    </div>
+    <ol class="grid gap-6 md:grid-cols-5">
+      {[
+        { n: '01', t: 'Inquiry & spec', d: 'Share grade, volume, destination port and target price. We respond within one business day.' },
+        { n: '02', t: 'Verified samples', d: 'We send lab-graded samples with COA and origin documentation for your approval.' },
+        { n: '03', t: 'Proforma & contract', d: 'Fixed-price proforma invoice, ICC Incoterms 2020 terms, and a signed sales contract.' },
+        { n: '04', t: 'Production & QC', d: 'We supervise grading, packaging and loading, with photos at each milestone.' },
+        { n: '05', t: 'Export & shipping', d: 'Customs clearance, bill of lading, and cold-chain or dry shipping to your port.' },
+      ].map((step) => (
+        <li class="rounded-xl border border-border bg-background p-5 shadow-sm">
+          <span class="font-display text-2xl font-bold text-accent">{step.n}</span>
+          <h3 class="mt-3 font-display text-base font-semibold text-foreground">{step.t}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-foreground/70">{step.d}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Global sourcing routes (required outbound link) -->
+  <section class="bg-primary py-16 text-primary-foreground sm:py-20">
+    <div class="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Global sourcing routes</p>
+        <h2 class="font-display text-3xl font-bold text-white text-balance sm:text-4xl">
+          Iran is one node in a multi-origin sourcing strategy
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-white/85 text-pretty">
+          Many of our buyers run diversified sourcing programmes that combine Iranian origin with
+          East Asian and Middle Eastern supply. For importers building a China leg of their
+          sourcing programme, our partner portal
+          <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="https://www.shanghaicity.ir/import-from-shanghai" target="_blank" rel="noopener">Import from Shanghai — sourcing guide</a>
+          covers supplier verification, MOQ negotiation and consolidated LCL shipping out of
+          Shanghai. For overland trade into Iraq, the
+          <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="https://www.erbilcity.ir/%d9%87%d8%aa%d9%84-%d8%a2%d9%86%d8%a7-%d8%a7%d8%b1%d9%88%d9%85%db%8c%d9%87%d8%9b-%d8%a7%d9%82%d8%a7%d9%85%d8%aa%da%af%d8%a7%d9%87-%d8%aa%d8%ac%d8%a7%d8%b1-%d8%b9%d8%b1%d8%a7%d9%82%db%8c/" target="_blank" rel="noopener">Erbil trade hotel — Iraq business accommodation</a>
+          guide is a practical base for buyers visiting Erbil to inspect Iranian goods re-exported
+          through the Kurdistan region.
+        </p>
+        <p class="mt-4 text-white/85">
+          Inside Iran, our most requested routes are
+          <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="/export/iranian-saffron-super-negin/">bulk Super Negin saffron for European importers</a>,
+          <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="/export/persian-rug-9x12-hand-knotted/">hand-knotted 9x12 Persian rug sourcing guide</a>,
+          <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="/export/bulk-fandoghi-pistachios-wholesale/">Iranian pistachio supplier for Russia</a>,
+          and <a class="font-semibold text-white underline decoration-accent decoration-2 underline-offset-4" href="/export/iranian-polyethylene-film-grade/">Iranian polyethylene film grade supplier</a> volumes for converters in South Asia.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-2xl shadow-xl">
+        <img
+          src={IMAGES.logistics2}
+          alt="Container ships docked at terminal ready for Iranian export loading"
+          class="h-72 w-full object-cover sm:h-80"
+          loading="lazy"
+          width="940"
+          height="650"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog teaser -->
+  <section class="container-wide py-16 sm:py-20">
+    <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div class="max-w-2xl">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">B2B sourcing knowledge</p>
+        <h2 class="font-display text-3xl font-bold text-foreground text-balance sm:text-4xl">
+          Practical guides for importing from Iran
+        </h2>
+      </div>
+      <a href="/blog/" class="link-underline text-sm font-semibold text-primary">All sourcing guides</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { href: '/blog/how-to-import-iranian-saffron-b2b-guide/', title: 'How to import Iranian saffron: a B2B guide for European buyers', img: IMAGES.saffron, alt: 'Iranian Super Negin saffron threads in a wooden spoon' },
+        { href: '/blog/iran-export-documentation-checklist/', title: 'Iran export documentation checklist for international buyers', img: IMAGES.logistics, alt: 'Shipping containers and documentation for Iranian exports' },
+        { href: '/blog/shipping-dates-from-iran-cold-chain/', title: 'Shipping dates from Iran: cold-chain logistics for Mazafati', img: IMAGES.dates, alt: 'Fresh Mazafati dates ready for cold-chain export from Iran' },
+      ].map((post) => (
+        <a href={post.href} class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+          <div class="h-44 overflow-hidden">
+            <img src={post.img} alt={post.alt} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" width="940" height="650" />
+          </div>
+          <div class="p-5">
+            <h3 class="font-display text-base font-semibold leading-snug text-foreground">{post.title}</h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="container-wide pb-20">
+    <div class="overflow-hidden rounded-3xl border border-border bg-secondary/60 px-6 py-12 text-center sm:px-12 sm:py-16">
+      <h2 class="font-display text-3xl font-bold text-foreground text-balance sm:text-4xl">
+        Send us your grade, volume and destination port
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-foreground/75 text-pretty">
+        We respond within one business day with verified supplier options, indicative pricing, and
+        a draft proforma invoice. No brokerage fees on the buyer side.
+      </p>
+      <a href="/contact/" class="mt-8 inline-flex rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow">
+        Request a sourcing quote
+      </a>
+    </div>
+  </section>
+</Layout>

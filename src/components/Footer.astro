@@ -1,0 +1,88 @@
+---
+import { SITE, MAIN_NAV, CATEGORIES } from '../data/site.ts';
+import Logo from './Logo.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-border bg-secondary/40">
+  <div class="container-wide py-14">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-2.5" aria-label={`${SITE.name} homepage`}>
+          <Logo />
+          <span class="font-display text-lg font-extrabold tracking-tight text-foreground">
+            {SITE.name}<span class="text-accent">.ir</span>
+          </span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+          {SITE.tagline}. Verified Iranian suppliers, export documentation, and cold-chain
+          logistics for international B2B buyers.
+        </p>
+        <p class="mt-4 text-sm text-muted-foreground">
+          {SITE.address}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground">
+          Export Categories
+        </h2>
+        <ul class="mt-4 space-y-2.5">
+          {CATEGORIES.map((c) => (
+            <li>
+              <a href={c.href} class="text-sm text-muted-foreground transition-colors hover:text-primary">
+                {c.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground">
+          Company
+        </h2>
+        <ul class="mt-4 space-y-2.5">
+          <li><a href="/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Home</a></li>
+          <li><a href="/about/" class="text-sm text-muted-foreground transition-colors hover:text-primary">About Palude</a></li>
+          <li><a href="/certifications/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Certifications &amp; Compliance</a></li>
+          <li><a href="/shipping-and-logistics/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Shipping &amp; Logistics</a></li>
+          <li><a href="/request-a-quote/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Request a Quote</a></li>
+          <li><a href="/faq/" class="text-sm text-muted-foreground transition-colors hover:text-primary">B2B FAQ</a></li>
+          <li><a href="/blog/" class="text-sm text-muted-foreground transition-colors hover:text-primary">B2B Sourcing Blog</a></li>
+          <li><a href="/contact/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Contact</a></li>
+          <li><a href="/blog/iran-export-documentation-checklist/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Iran Export Documentation</a></li>
+          <li><a href="/blog/how-to-import-iranian-saffron-b2b-guide/" class="text-sm text-muted-foreground transition-colors hover:text-primary">Saffron Import Guide</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground">
+          Contact
+        </h2>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li>
+            <a href={`tel:${SITE.phoneE164}`} class="text-muted-foreground transition-colors hover:text-primary">
+              Phone / WhatsApp: {SITE.phoneDisplay}
+            </a>
+          </li>
+          <li>
+            <a href={`https://t.me/${SITE.telegram}`} class="text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noopener">
+              Telegram: {SITE.phoneDisplay}
+            </a>
+          </li>
+          <li>
+            <a href={SITE.instagramUrl} class="text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noopener">
+              Instagram: @{SITE.instagram}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
+      <p>&copy; {year} {SITE.name}. All rights reserved. Iranian export sourcing for international B2B buyers.</p>
+      <p>Exports compliant with applicable Iranian trade regulations.</p>
+    </div>
+  </div>
+</footer>

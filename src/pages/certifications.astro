@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE, IMAGES } from '../data/site.ts';
+
+const title = 'Certifications & Compliance — ISO, Halal, HACCP, Pre-Shipment Inspection | Palude';
+const description =
+  'Certifications and compliance framework for Iranian exports: ISO 3632 saffron grading, HACCP food safety, halal certification for GCC, certificate of origin, pre-shipment inspection by SGS and Intertek, and destination-market compliance for EU, Russia and GCC buyers.';
+
+const certSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  url: `${SITE.url}/certifications/`,
+  description,
+  about: {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+  },
+};
+---
+
+<Layout title={title} description={description} jsonLd={certSchema}>
+  <Breadcrumbs items={[{ label: 'Certifications', href: '/certifications/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <header class="max-w-3xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Certifications &amp; compliance</p>
+      <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+        The certification framework behind every Palude shipment
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+        Certification is the document layer that turns a grade claim into a defensible shipment. A
+        supplier that cannot produce a current, batch-specific certificate is a supplier whose grade
+        claim is unverified. This page documents the certification framework Palude applies to every
+        export, by product vertical and by destination market, so buyers know exactly which
+        documents travel with their cargo and why.
+      </p>
+    </header>
+
+    <figure class="mt-10 overflow-hidden rounded-2xl border border-border shadow-sm">
+      <img
+        src={IMAGES.lab}
+        alt="Iranian laboratory technician testing export-grade saffron and food products for compliance certification"
+        class="h-72 w-full object-cover sm:h-80"
+        loading="eager"
+        width="940"
+        height="650"
+      />
+      <figcaption class="bg-secondary/60 px-4 py-2.5 text-center text-sm text-muted-foreground">
+        Laboratory testing underpins ISO 3632, HACCP and aflatoxin certification for Iranian food exports
+      </figcaption>
+    </figure>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-[1.4fr_0.9fr] lg:items-start">
+      <article class="prose-palude max-w-none">
+        <h2>ISO 3632: saffron specification and grading</h2>
+        <p>
+          ISO 3632 is the international standard for saffron specification and test methods, and it
+          is the only objective framework that separates a real grade claim from a marketing label.
+          The standard measures three absorbance values: crocin at 440 nm (colour strength),
+          picrocrocin at 257 nm (flavour), and safranal at 330 nm (aroma). Genuine
+          <a href="/export/iranian-saffron-super-negin/">Super Negin and Sargol saffron</a> test at
+          crocin 230-260+; lower grades land at 120-190. The EU's Category I threshold under ISO
+          3632 is crocin 200, picrocrocin 70, safranal 20-50.
+        </p>
+        <p>
+          Palude attaches an ISO 3632 certificate from an accredited Iranian laboratory to every
+          saffron proforma, before the buyer asks for it. The certificate is batch-specific, names
+          the laboratory, and reports the absorbance values. A supplier that quotes a saffron price
+          without issuing the certificate is selling on the grade name, not on the lab values — and
+          that is the pattern that produces a container of Sargol-priced Pushal. Our
+          <a href="/blog/how-to-import-iranian-saffron-b2b-guide/">saffron import guide</a> covers
+          the ISO 3632 framework in procurement-context detail.
+        </p>
+
+        <h2>HACCP: food safety across the food verticals</h2>
+        <p>
+          HACCP (Hazard Analysis and Critical Control Points) is the food-safety management system
+          that governs the packing facilities we source from for saffron, pistachios, dates, dried
+          fruit, almonds and the <a href="/export/golden-almonds-iran-sourcing/">saffron nuts gift
+          box</a> programme. A HACCP-certified facility has identified the biological, chemical and
+          physical hazards relevant to its product line, defined the critical control points where
+          those hazards are managed, and documented the monitoring and corrective-action procedures
+          at each control point.
+        </p>
+        <p>
+          For the stuffed-date and gift-box assembly operations — where multiple Iranian food SKUs
+          are combined in a single HACCP-certified facility — the HACCP certification covers the
+          assembly workflow as well as the incoming-material inspection. The HACCP certificate is
+          available on request and is part of the documentation set for buyers whose destination
+          market requires evidence of food-safety management at the packing facility.
+        </p>
+
+        <h2>Halal certification for GCC destinations</h2>
+        <p>
+          Halal certification is required by most GCC destination authorities for food-product
+          imports, and is increasingly requested by non-GCC buyers whose retail channel serves a
+          Muslim consumer base. The halal certificate confirms that the product, the processing
+          aids, and the packaging workflow comply with Islamic dietary requirements, and is issued
+          by an Islamic authority recognised by the destination market. For
+          <a href="/export/mazafati-dates-bulk-import/">Mazafati dates</a>,
+          <a href="/export/bulk-fandoghi-pistachios-wholesale/">pistachios</a> and the gift-box
+          programme, we include a halal certificate as a standard document for GCC-bound shipments
+          and as an on-request document for other destinations.
+        </p>
+
+        <h2>Phytosanitary certification</h2>
+        <p>
+          The phytosanitary certificate is issued by the Iranian Plant Protection Organization and is
+          required for every plant-product export — saffron, pistachios, dates, dried fruit, almonds.
+          The certificate confirms that the product has been inspected and found free of quarantine
+          pests and is compliant with the destination's plant-health requirements. The phytosanitary
+          certificate travels with the shipment and is presented to destination customs by the
+          buyer's broker. For consolidated shipments containing multiple plant-product SKUs, a
+          single phytosanitary certificate can cover the consolidated cargo, reducing destination
+          clearance cost.
+        </p>
+
+        <h2>Certificate of origin</h2>
+        <p>
+          The certificate of origin is issued by the Iran Chamber of Commerce, Industries, Mines and
+          Agriculture, and confirms that the goods are of Iranian origin. The certificate is the
+          document that determines the destination's applicable tariff rate and, in some
+          jurisdictions, the eligibility for preferential treatment. For Persian carpets, the
+          certificate of origin names the weaving city or region (Tabriz, Heriz, Esfahan, Qum),
+          which is the origin documentation that supports the carpet's authenticity alongside the
+          spec sheet and photographic set described in our
+          <a href="/blog/persian-carpet-authentication-verify-hand-knotted/">carpet authentication
+          guide</a>.
+        </p>
+
+        <h2>Aflatoxin testing and the HPLC certificate</h2>
+        <p>
+          Aflatoxin testing is the food-safety framework specific to pistachios and nuts. The EU's
+          aflatoxin limit for pistachios is 10 ppb total (8 ppb B1); Russia's de facto
+          large-importer standard is 4 ppb total. Every pistachio export lot is sampled and tested
+          by an accredited Iranian laboratory using HPLC (high-performance liquid chromatography),
+          the reference method, and the HPLC certificate travels with the cargo. The
+          <a href="/blog/iranian-pistachio-quality-standards-aflatoxin/">pistachio quality
+          standards guide</a> covers the aflatoxin control protocol in detail.
+        </p>
+
+        <h2>Refinery test certificates for petrochemicals and bitumen</h2>
+        <p>
+          The industrial verticals ship with refinery test certificates rather than food-safety
+          certificates. <a href="/export/iranian-polyethylene-film-grade/">Polyethylene</a> ships
+          with a technical data sheet and a certificate of analysis reporting the MFI, density and
+          additive package. Methanol ships with an IMPCA-spec certificate of analysis reporting
+          purity, water and acidity. Urea ships with a certificate of analysis reporting nitrogen,
+          biuret and moisture. <a href="/blog/iranian-bitumen-60-70-specifications-bulk-export/">Bitumen
+          60/70</a> ships with a refinery certificate reporting penetration, softening point,
+          ductility, viscosity, flash point, loss on heating, solubility and specific gravity. In
+          each case, the certificate is lot-specific and is the document that verifies the grade
+          claim against the ASTM specification.
+        </p>
+
+        <h2>Pre-shipment inspection (PSI)</h2>
+        <p>
+          For government-tender and large-volume buyers, a pre-shipment inspection by an
+          international inspection company — SGS, Intertek, Bureau Veritas or Cotecna — is often a
+          contract requirement. The PSI verifies quantity, quality, packaging and marking before
+          the container ships, and the PSI certificate is the document the buyer's tender authority
+          requires for payment release. Palude facilitates PSI at the Iranian loading port as part
+          of the export workflow, and the PSI cost is a quoted line item rather than a surprise at
+          the invoice stage.
+        </p>
+
+        <h2>Destination-specific compliance</h2>
+        <p>
+          Beyond the core certification set, some destinations require additional documentation. The
+          EU requires a GMO-free declaration for food products and REACH compliance documentation
+          for chemical imports. The GCC requires halal certification for food products and GSO
+          conformity where applicable. Russia and the EAEU require an EAC conformity declaration,
+          typically handled by the Russian importer. China requires CIF destination port and, for
+          certain industrial products, CCC certification. India requires BIS certification for
+          certain industrial products and FSSAI registration for food products. We quote
+          destination-specific add-ons as separate line items so the buyer sees the full
+          documentation cost before contracting.
+        </p>
+        <p>
+          The full document workflow — which certificate travels with which product, and how the
+          documents are checked at origin before the vessel sails — is covered in our
+          <a href="/blog/iran-export-documentation-checklist/">Iran export documentation
+          checklist</a>. For the packaging specs that protect certified product in transit, our
+          <a href="/blog/packaging-standards-iranian-food-exports/">packaging standards guide</a>
+          is the companion read. To begin an engagement with the certification framework defined
+          upfront, <a href="/request-a-quote/">request a sourcing quote</a>.
+        </p>
+      </article>
+
+      <aside class="space-y-5 lg:sticky lg:top-24">
+        <div class="rounded-2xl border border-border bg-secondary/50 p-6">
+          <h2 class="font-display text-base font-bold text-foreground">Certificate summary by vertical</h2>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div><dt class="font-semibold text-foreground">Saffron</dt><dd class="text-muted-foreground">ISO 3632 lab certificate, phytosanitary, certificate of origin</dd></div>
+            <div><dt class="font-semibold text-foreground">Pistachios &amp; nuts</dt><dd class="text-muted-foreground">HPLC aflatoxin certificate, phytosanitary, certificate of origin, halal (GCC)</dd></div>
+            <div><dt class="font-semibold text-foreground">Dates &amp; dried fruit</dt><dd class="text-muted-foreground">Phytosanitary, certificate of origin, halal (GCC), HACCP</dd></div>
+            <div><dt class="font-semibold text-foreground">Carpets</dt><dd class="text-muted-foreground">Certificate of origin, Cultural Heritage permit, appraisal</dd></div>
+            <div><dt class="font-semibold text-foreground">Stone</dt><dd class="text-muted-foreground">Certificate of origin, spec sheet, photographs</dd></div>
+            <div><dt class="font-semibold text-foreground">Petrochemicals &amp; bitumen</dt><dd class="text-muted-foreground">Refinery certificate of analysis, MSDS, certificate of origin</dd></div>
+          </dl>
+        </div>
+        <div class="rounded-2xl border border-border bg-background p-6 shadow-sm">
+          <h2 class="font-display text-base font-bold text-foreground">Need a specific certificate?</h2>
+          <p class="mt-2 text-sm text-foreground/70">Tell us your product, destination and tender requirements. We confirm the certificate set before contracting.</p>
+          <a href="/request-a-quote/" class="mt-4 inline-flex rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow">
+            Request a quote
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>

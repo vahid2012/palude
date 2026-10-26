@@ -1,0 +1,51 @@
+---
+import { SITE } from '../data/site.ts';
+
+export interface Crumb {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+const itemListElement = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: 'Home',
+    item: `${SITE.url}/`,
+  },
+  ...items.map((item, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 2,
+    name: item.label,
+    item: new URL(item.href, SITE.url).href.replace(/\/$/, '') + '/',
+  })),
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement,
+};
+---
+
+<nav aria-label="Breadcrumb" class="container-wide pt-5">
+  <ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
+    <li>
+      <a href="/" class="hover:text-primary">Home</a>
+    </li>
+    {items.map((item) => (
+      <li class="flex items-center gap-1.5">
+        <span class="text-border" aria-hidden="true">/</span>
+        <a href={item.href} class="hover:text-primary">{item.label}</a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

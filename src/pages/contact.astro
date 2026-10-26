@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE, IMAGES } from '../data/site.ts';
+
+const title = 'Contact Palude — Request an Iranian Export Sourcing Quote';
+const description =
+  'Contact Palude to request a sourcing quote for Iranian saffron, Persian carpets, pistachios, dates, dried fruits, travertine marble, bitumen, polyethylene, methanol, urea or golden almonds. Phone, WhatsApp, Telegram and Instagram.';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: title,
+  url: `${SITE.url}/contact/`,
+  description,
+  mainEntity: {
+    '@type': 'Organization',
+    name: SITE.name,
+    telephone: SITE.phoneE164,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Urmia',
+      addressRegion: 'West Azerbaijan',
+      addressCountry: 'IR',
+    },
+  },
+};
+---
+
+<Layout title={title} description={description} jsonLd={contactSchema}>
+  <Breadcrumbs items={[{ label: 'Contact', href: '/contact/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+      <div>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Contact &amp; quote request</p>
+        <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+          Request an Iranian export sourcing quote
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+          Send us the product, grade, volume, destination port and any certification requirements
+          you have. A sourcing advisor will respond within one business day with verified supplier
+          options, indicative pricing, and a draft proforma invoice. There are no brokerage fees on
+          the buyer side.
+        </p>
+
+        <div class="mt-6 space-y-4 text-foreground/80">
+          <p>
+            Every engagement starts with a written inquiry and ends with a delivered container and a
+            retained sample for dispute resolution. Between those two points, the Palude export desk
+            handles supplier verification, lab-graded quality control, export documentation,
+            sanctions-compliant payment routing, and the cold-chain or dry-container logistics your
+            product requires. We are not a trading house that marks up the supplier's price — we are
+            the desk that stands between you and the supplier, accountable for the grade, the
+            documentation and the shipment arriving as contracted.
+          </p>
+          <p>
+            The fastest route to a useful first response is to include the product and grade, the
+            estimated volume, the destination country and port, any certification requirements your
+            market imposes, and your preferred Incoterms and target lead time. With those five
+            pieces of information we can return a draft proforma within one business day. Without
+            them, the first response is a clarifying question — useful, but slower.
+          </p>
+          <p>
+            We work with buyers across the EU, the Gulf, Russia and the CIS, South Asia, East Asia
+            and Africa. The payment and compliance framework shifts by destination, and we confirm
+            the working payment channel for your specific country and bank before we issue a
+            proforma. For the full document and payment workflow, read our
+            <a href="/blog/iran-export-documentation-checklist/" class="font-medium text-primary underline decoration-primary/30 underline-offset-4">Iran export documentation checklist</a>
+            and our <a href="/blog/payment-methods-iranian-exports-b2b/" class="font-medium text-primary underline decoration-primary/30 underline-offset-4">payment methods for Iranian exports</a> guide.
+          </p>
+        </div>
+
+        <h2 class="mt-10 font-display text-xl font-bold text-foreground">Direct contact channels</h2>
+        <p class="mt-2 text-sm text-muted-foreground">Phone, WhatsApp, Telegram and Instagram are monitored during Iran business hours (UTC+3:30). WhatsApp and Telegram are the fastest channels for international buyers.</p>
+
+        <div class="mt-6 grid gap-5 sm:grid-cols-2">
+          <a href={`tel:${SITE.phoneE164}`} class="flex items-center gap-4 rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span>
+              <span class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Phone</span>
+              <span class="block font-semibold text-foreground">{SITE.phoneDisplay}</span>
+            </span>
+          </a>
+
+          <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01s-.43.06-.66.31c-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+            </span>
+            <span>
+              <span class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">WhatsApp</span>
+              <span class="block font-semibold text-foreground">{SITE.phoneDisplay}</span>
+            </span>
+          </a>
+
+          <a href={`https://t.me/${SITE.telegram}`} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-[#229ED9] text-white">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3l-3.27 15.42c-.25 1.09-.9 1.36-1.82.85l-5.03-3.71-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.12 9.33-8.43c.41-.36-.09-.56-.63-.2L5.16 13.06 1.4 11.88c-.82-.26-.84-.82.17-1.21l19.18-7.39c.68-.25 1.28.16 1.06 1.02z"/></svg>
+            </span>
+            <span>
+              <span class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Telegram</span>
+              <span class="block font-semibold text-foreground">{SITE.phoneDisplay}</span>
+            </span>
+          </a>
+
+          <a href={SITE.instagramUrl} target="_blank" rel="noopener" class="flex items-center gap-4 rounded-xl border border-border bg-background p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </span>
+            <span>
+              <span class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Instagram</span>
+              <span class="block font-semibold text-foreground">@{SITE.instagram}</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="mt-8 rounded-xl border border-border bg-secondary/50 p-5">
+          <h2 class="font-display text-base font-semibold text-foreground">Business address</h2>
+          <p class="mt-2 text-foreground/80">{SITE.address}</p>
+          <p class="mt-2 text-sm text-muted-foreground">Visits by appointment only. Video calls and on-site supplier inspections available on request.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="overflow-hidden rounded-2xl border border-border shadow-sm">
+          <img
+            src={IMAGES.handshake}
+            alt="International B2B buyer shaking hands with an Iranian export supplier"
+            class="h-64 w-full object-cover sm:h-72"
+            loading="lazy"
+            width="940"
+            height="650"
+          />
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-border bg-background p-6 shadow-sm">
+          <h2 class="font-display text-lg font-bold text-foreground">What to include in your first message</h2>
+          <ul class="mt-4 space-y-2.5 text-sm text-foreground/80">
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>Product and grade (e.g. Super Negin saffron, 9x12 Tabriz rug, Fandoghi pistachio 28-30)</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>Estimated volume or order quantity</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>Destination country and port</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>Required certifications (ISO, HACCP, halal, EU phytosanitary)</li>
+            <li class="flex gap-2.5"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>Preferred Incoterms and target lead time</li>
+          </ul>
+          <p class="mt-5 text-sm text-muted-foreground">
+            Browse detailed verticals before you reach out:
+            <a href="/export/iranian-saffron-super-negin/" class="font-medium text-primary underline decoration-primary/30 underline-offset-4">bulk Super Negin saffron for European importers</a>,
+            <a href="/export/persian-rug-9x12-hand-knotted/" class="font-medium text-primary underline decoration-primary/30 underline-offset-4">hand-knotted 9x12 Persian rug sourcing guide</a>,
+            <a href="/export/bulk-fandoghi-pistachios-wholesale/" class="font-medium text-primary underline decoration-primary/30 underline-offset-4">Iranian pistachio supplier for Russia</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE, IMAGES } from '../data/site.ts';
+
+const title = 'About Palude — Iranian Export Sourcing Desk for International B2B Buyers';
+const description =
+  'About Palude: an Iranian export sourcing desk founded in 2016, connecting international B2B importers with verified Iranian suppliers of saffron, carpets, pistachios, dates, stone, petrochemicals and food products. Team, operational capacity and track record.';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  url: `${SITE.url}/about/`,
+  description,
+  mainEntity: {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+    foundingDate: String(SITE.founded),
+    description: SITE.description,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Urmia',
+      addressRegion: 'West Azerbaijan',
+      addressCountry: 'IR',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: SITE.phoneE164,
+      availableLanguage: ['English', 'Persian'],
+    },
+    sameAs: [SITE.instagramUrl],
+  },
+};
+---
+
+<Layout title={title} description={description} jsonLd={aboutSchema}>
+  <Breadcrumbs items={[{ label: 'About', href: '/about/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <header class="max-w-3xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">About Palude</p>
+      <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+        An Iranian export sourcing desk, not a trading house
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+        Palude was founded in 2016 to solve a specific problem in the Iranian export trade: the gap
+        between the international B2B buyer's specification and the Iranian supplier's shipment.
+        We are not a trading house that buys from a supplier and resells at a margin. We are the
+        export desk that stands between the buyer and the supplier, accountable for the grade, the
+        documentation, and the cargo arriving as contracted.
+      </p>
+    </header>
+
+    <figure class="mt-10 overflow-hidden rounded-2xl border border-border shadow-sm">
+      <img
+        src={IMAGES.team}
+        alt="Palude export desk team reviewing Iranian supplier documentation in the Urmia office"
+        class="h-72 w-full object-cover sm:h-80"
+        loading="eager"
+        width="940"
+        height="650"
+      />
+      <figcaption class="bg-secondary/60 px-4 py-2.5 text-center text-sm text-muted-foreground">
+        The Palude export desk — supplier verification, documentation and logistics coordination from Urmia
+      </figcaption>
+    </figure>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-[1.4fr_0.9fr] lg:items-start">
+      <article class="prose-palude max-w-none">
+        <h2>What we do</h2>
+        <p>
+          Palude operates as a single accountable export desk across seven Iranian product verticals:
+          <a href="/export/iranian-saffron-super-negin/">saffron</a>,
+          <a href="/export/persian-rug-9x12-hand-knotted/">Persian carpets</a>,
+          <a href="/export/bulk-fandoghi-pistachios-wholesale/">pistachios</a>,
+          <a href="/export/mazafati-dates-bulk-import/">dates and dried fruits</a>,
+          <a href="/export/persian-travertine-marble-supplier/">travertine, marble and bitumen</a>,
+          <a href="/export/iranian-polyethylene-film-grade/">polyethylene, methanol and urea</a>, and
+          <a href="/export/golden-almonds-iran-sourcing/">golden almonds and gift boxes</a>. For each
+          vertical, the workflow is identical: a buyer inquiry produces a written specification, the
+          specification is matched to a verified supplier, lab-graded samples are sent for approval,
+          a fixed-price proforma is issued, production is supervised, the export documentation is
+          assembled, and the cargo ships under the Incoterms the buyer specified.
+        </p>
+        <p>
+          The difference between Palude and a conventional Iranian export trading house is the
+          accountability model. A trading house buys from a supplier and resells to a buyer; when a
+          quality dispute arises, the trading house is financially incented to defend the supplier.
+          Palude is paid by the buyer to verify the supplier; when a quality dispute arises, we are
+          incented to resolve it against the documented specification, because our reputation is the
+          buyer's, not the supplier's. This is why we attach an ISO 3632 certificate to every saffron
+          proforma, an HPLC aflatoxin certificate to every pistachio proforma, and a refinery test
+          certificate to every bitumen proforma — before the buyer asks for it.
+        </p>
+
+        <h2>Experience and track record</h2>
+        <p>
+          The desk was founded in 2016 and has since handled shipments to buyers across the EU, the
+          Gulf, Russia and the CIS, South Asia, East Asia and Africa. The saffron vertical is the
+          one that built the desk's reputation with European importers, and it remains the vertical
+          where the lab-verification and packaging discipline is most visible. The petrochemical and
+          industrial verticals — polyethylene, methanol, urea, bitumen and stone — are the volume
+          verticals, driven by refinery-direct and quarry-direct sourcing relationships. The Persian
+          carpet vertical is the authentication vertical, where the desk's knot-density counting,
+          dye-analysis and provenance-documentation discipline replaces the lab framework that
+          governs the food and chemical categories.
+        </p>
+        <p>
+          The desk's track record is measured not in volume shipped but in disputes resolved. The
+          retained-sample dispute-resolution mechanism — a sealed sample held at our facility and at
+          the buyer's facility, tested by an agreed third-party laboratory in the event of a
+          disagreement — has resolved every quality dispute the desk has encountered without
+          litigation. The mechanism works because both sides agreed to it before the disagreement
+          existed, and because the specification it tests against was documented at the proforma
+          stage, not reconstructed after the cargo arrived.
+        </p>
+
+        <h2>The team</h2>
+        <p>
+          The Palude desk is a small, senior team. The saffron and food verticals are led by a
+          sourcing advisor who has worked the Khorasan saffron harvest and the Kerman pistachio
+          harvest for over a decade. The petrochemical and industrial verticals are led by an
+          advisor with refinery and quarry relationships built over the same period. The carpet
+          vertical is led by an advisor with the authentication and Cultural Heritage permit
+          experience that antique and high-value pieces require. Documentation, payment routing and
+          logistics coordination are handled by a shared operations team that works across all
+          verticals, because the export documentation and sanctions-compliant payment workflow is
+          common to every shipment regardless of product.
+        </p>
+        <p>
+          The team is based in Urmia, West Azerbaijan — a location that puts the desk within
+          overland reach of the Tabriz carpet workshops, the Azerbaijan travertine quarries, and the
+          overland corridor to Russia and the CIS. The Khorasan saffron, Kerman pistachio and Bam
+          date origins are reached by air and by the domestic logistics network. For buyers who want
+          to see the operation, visits to the Urmia office are available by appointment, and
+          on-site supplier inspections can be arranged at the relevant origin.
+        </p>
+
+        <h2>Operational capacity</h2>
+        <p>
+          The desk handles a range of order sizes, from a single kilogram of sample-grade saffron to
+          full-container and vessel-load petrochemical shipments. The operational capacity is not
+          measured in a single throughput number but in the concurrent engagements the desk can
+          manage without compromising the verification discipline: supplier visits, sample
+          dispatch, proforma issuance, production supervision, documentation assembly and
+          shipment tracking. The desk caps concurrent engagements at the level where each
+          engagement receives the attention the verification workflow demands, and declines
+          engagements it cannot service to standard.
+        </p>
+        <p>
+          For the certification and compliance framework that underpins every shipment, read our
+          <a href="/certifications/">certifications and compliance page</a>. For the port, Incoterms
+          and transit-time framework, read our <a href="/shipping-and-logistics/">shipping and
+          logistics guide</a>. For the payment-channel framework, our
+          <a href="/blog/payment-methods-iranian-exports-b2b/">payment methods for Iranian exports</a>
+          guide covers the working channels. And for the questions buyers ask most often before
+          their first engagement, our <a href="/faq/">B2B FAQ</a> answers them directly.
+        </p>
+      </article>
+
+      <aside class="space-y-5">
+        <div class="rounded-2xl border border-border bg-secondary/50 p-6">
+          <h2 class="font-display text-base font-bold text-foreground">At a glance</h2>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div><dt class="text-muted-foreground">Founded</dt><dd class="font-semibold text-foreground">2016</dd></div>
+            <div><dt class="text-muted-foreground">Verticals</dt><dd class="font-semibold text-foreground">7 export product categories</dd></div>
+            <div><dt class="text-muted-foreground">Destinations served</dt><dd class="font-semibold text-foreground">EU, Gulf, Russia &amp; CIS, South Asia, East Asia, Africa</dd></div>
+            <div><dt class="text-muted-foreground">Base</dt><dd class="font-semibold text-foreground">{SITE.address}</dd></div>
+            <div><dt class="text-muted-foreground">Languages</dt><dd class="font-semibold text-foreground">English, Persian</dd></div>
+          </dl>
+        </div>
+        <div class="rounded-2xl border border-border bg-background p-6 shadow-sm">
+          <h2 class="font-display text-base font-bold text-foreground">Start an engagement</h2>
+          <p class="mt-2 text-sm text-foreground/70">Send your product, grade, volume, destination port and Incoterms. We respond within one business day.</p>
+          <a href="/request-a-quote/" class="mt-4 inline-flex rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow">
+            Request a quote
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>

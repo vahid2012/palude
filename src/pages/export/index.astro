@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { CATEGORIES, IMAGES } from '../../data/site.ts';
+
+const title = 'Iranian Export Product Verticals — Saffron, Carpets, Pistachios, Dates, Stone, Petrochemicals | Palude';
+const description =
+  'Browse all Iranian export verticals: saffron, Persian carpets, pistachios, Mazafati dates and dried fruits, travertine and marble, polyethylene and petrochemicals, and golden almonds. One export desk for the full range of Iranian export goods.';
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Iranian Export Product Verticals',
+  url: 'https://palude.ir/export/',
+  description,
+  hasPart: CATEGORIES.map((c) => ({
+    '@type': 'Product',
+    name: c.label,
+    url: `https://palude.ir${c.href}`,
+  })),
+};
+---
+
+<Layout title={title} description={description} jsonLd={collectionSchema}>
+  <Breadcrumbs items={[{ label: 'Export', href: '/export/' }]} />
+
+  <section class="container-wide py-14 sm:py-20">
+    <header class="max-w-2xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">Export verticals</p>
+      <h1 class="font-display text-4xl font-extrabold leading-tight text-foreground text-balance sm:text-5xl">
+        Iranian export product verticals
+      </h1>
+      <p class="mt-5 text-lg leading-relaxed text-foreground/80 text-pretty">
+        Seven product verticals, one Iranian export desk. Each vertical links to a detailed sourcing
+        page with grade specifications, minimum order quantities, lead times, packaging, and the
+        export documentation you will receive.
+      </p>
+    </header>
+
+    <div class="mt-10 max-w-3xl prose-palude">
+      <p>
+        Iran's export economy spans agriculture, handicrafts, industrial minerals and petrochemicals,
+        and the international buyer's challenge is rarely finding a supplier — it is finding a
+        verified supplier whose grade claim, documentation and logistics match what the buyer's
+        destination market requires. The seven verticals below are the categories Palude has built
+        its supplier network around, and each vertical page is a working sourcing guide rather than
+        a marketing brochure: grade specifications, minimum order quantities, lead times, packaging
+        formats, the export documentation you will receive, and the destination-compliance notes
+        that determine whether the cargo clears your customs without dispute.
+      </p>
+      <p>
+        The food verticals — <a href="/export/iranian-saffron-super-negin/">saffron</a>,
+        <a href="/export/bulk-fandoghi-pistachios-wholesale/">pistachios</a>,
+        <a href="/export/mazafati-dates-bulk-import/">dates and dried fruits</a>, and
+        <a href="/export/golden-almonds-iran-sourcing/">golden almonds and gift boxes</a> — share a
+        common documentation backbone: phytosanitary certification, ISO or HACCP lab certificates,
+        and destination-specific food-safety compliance (EU aflatoxin limits, Russian large-importer
+        standards, GCC halal certification). The industrial verticals —
+        <a href="/export/persian-travertine-marble-supplier/">travertine, marble and bitumen</a> and
+        <a href="/export/iranian-polyethylene-film-grade/">polyethylene, methanol and urea</a> —
+        share a refinery-certificate and ASTM-spec backbone. The
+        <a href="/export/persian-rug-9x12-hand-knotted/">Persian carpet</a> vertical is the outlier,
+        with authentication, provenance and Cultural Heritage permits replacing the food and
+        chemical certification framework.
+      </p>
+      <p>
+        Buyers running a multi-vertical sourcing programme — for example, a distributor importing
+        saffron and pistachios together, or a construction programme importing stone alongside
+        petrochemicals — benefit from consolidating the programme through a single export desk. The
+        documentation, payment routing and logistics are handled once rather than per-supplier, and
+        the per-ton logistics cost falls as the consolidated volume rises. If you are evaluating
+        which verticals fit your programme, the detailed pages below are the place to start; if you
+        already know your requirement, <a href="/contact/">request a sourcing quote</a> and an
+        advisor will respond within one business day.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {CATEGORIES.map((cat) => (
+        <a
+          href={cat.href}
+          class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+        >
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src={cat.image}
+              alt={cat.alt}
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              width="940"
+              height="650"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
+            <h2 class="absolute bottom-3 left-4 right-4 font-display text-lg font-bold text-white">
+              {cat.label}
+            </h2>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="text-sm leading-relaxed text-foreground/75">{cat.blurb}</p>
+            <ul class="mt-4 space-y-1.5">
+              {cat.keywords.slice(0, 3).map((kw) => (
+                <li class="flex items-start gap-2 text-xs text-muted-foreground">
+                  <span class="mt-1 h-1 w-1 shrink-0 rounded-full bg-accent"></span>
+                  {kw}
+                </li>
+              ))}
+            </ul>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+              Open sourcing guide
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-16 overflow-hidden rounded-3xl border border-border bg-secondary/60 px-6 py-12 text-center sm:px-12 sm:py-16">
+      <h2 class="font-display text-3xl font-bold text-foreground text-balance sm:text-4xl">
+        Not sure which vertical fits your requirement?
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-foreground/75 text-pretty">
+        Send us the product, grade, volume and destination port. We respond within one business day
+        with verified supplier options and a draft proforma.
+      </p>
+      <a href="/contact/" class="mt-8 inline-flex rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow">
+        Request a sourcing quote
+      </a>
+    </div>
+  </section>
+</Layout>
